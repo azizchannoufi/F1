@@ -7,9 +7,9 @@ import 'package:f1/routes/routes.gr.dart';
 class Routes extends RootStackRouter {
   @override
   List<AutoRoute> get routes => [
-    AutoRoute(page: SplashRoute.page ),
+    AutoRoute(page: SplashRoute.page ,initial: true),
     AutoRoute(page: UserInfoRoute.page),
-    AutoRoute(page: HomeRoute.page ,initial: true),
+    AutoRoute(page: HomeRoute.page),
   ];
 }
 
