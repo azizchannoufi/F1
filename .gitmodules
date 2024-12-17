@@ -1,0 +1,3 @@
+[submodule "f1"]
+	path = f1
+	url = https://github.com/azizchannoufi/F1.git
