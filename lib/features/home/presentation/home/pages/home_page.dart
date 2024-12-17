@@ -4,6 +4,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:formz/formz.dart';
 
 import '../../../../../Core/app_theme.dart';
+import '../../../../../Core/strings/messages.dart';
+import '../../../../../Core/widgets/loading_widget.dart';
 import '../bloc/home_bloc.dart';
 import '../widget/widgets.dart';
 
@@ -35,14 +37,14 @@ class _HomePageState extends State<HomePage> {
             // Afficher le nom de l'utilisateur si disponible
             final userName = state.user.isNotEmpty
                 ? "${state.user[0].first_name} ${state.user[0].last_name}"
-                : "Good morning";
+                : good_mornig;
             return Text(
-              "Good morning,\n$userName",
+              "$good_mornig\n$userName",
               style: const TextStyle(color: Colors.white, fontSize: 20),
             );
           },
         ),
-        toolbarHeight: 100,
+        toolbarHeight: 120,
         leading: Padding(
           padding: const EdgeInsets.only(left:8.0),
           child: CircleAvatar(
@@ -58,7 +60,7 @@ class _HomePageState extends State<HomePage> {
             child: const Padding(
               padding: EdgeInsets.all(16.0),
               child: Text(
-                "Top 10 ranking 2021",
+                top10,
                 style: TextStyle(
                     fontSize: 22, fontWeight: FontWeight.bold, color: Colors.red),
               ),
@@ -85,7 +87,7 @@ class _HomePageState extends State<HomePage> {
                     },
                   );
                 } else {
-                  return const Center(child: Text("No data available"));
+                  return LoadingWidget();
                 }
               },
             ),

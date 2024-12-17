@@ -50,7 +50,7 @@ class HomeRemoteDatasourceImpl implements HomeRemoteDatasource {
           throw Exception('Format de réponse inattendu: ${response.data}');
         }
       } else {
-        throw Exception('Échec du chargement des produits: ${response.statusCode} ${response.statusMessage}');
+        throw Exception('Échec du chargement des drivers: ${response.statusCode} ${response.statusMessage}');
       }
     } on DioError catch (e) {
       throw Exception('Erreur Dio: ${e.message}');

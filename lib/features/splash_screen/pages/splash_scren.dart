@@ -10,8 +10,8 @@ class SplashScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     // Démarrage du délai
-    Future.delayed(const Duration(seconds: 30), () {
-      context.router.replace(const UserInfoRoute());
+    Future.delayed(const Duration(seconds: 1), () {
+      context.router.push(UserInfoRoute());
     });
 
     return Scaffold(

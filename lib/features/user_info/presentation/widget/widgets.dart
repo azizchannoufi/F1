@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:formz/formz.dart';
 
+import '../../../../Core/strings/messages.dart';
 import '../bloc/userinfo_bloc.dart';
 
 // AppBar personnalisée
@@ -34,7 +35,6 @@ class LogoSection extends StatelessWidget {
           width: 100,
           height: 100,
         ),
-        const SizedBox(height: 20),
       ],
     );
   }
@@ -48,7 +48,7 @@ class TitleSection extends StatelessWidget {
     return Column(
       children: const [
         Text(
-          "Let's Get Familiar",
+          user_info_welcome,
           style: TextStyle(
             fontSize: 22,
             fontWeight: FontWeight.bold,
@@ -56,7 +56,7 @@ class TitleSection extends StatelessWidget {
         ),
         SizedBox(height: 10),
         Text(
-          "Introduce Yourself",
+          user_info_introduce,
           style: TextStyle(
             fontSize: 16,
             color: Colors.grey,
@@ -86,7 +86,7 @@ class InputFieldsSection extends StatelessWidget {
         TextField(
           controller: firstNameController,
           decoration: InputDecoration(
-            labelText: 'First name',
+            labelText: First_name,
             border: OutlineInputBorder(
               borderRadius: BorderRadius.circular(10),
             ),
@@ -99,7 +99,7 @@ class InputFieldsSection extends StatelessWidget {
         TextField(
           controller: lastNameController,
           decoration: InputDecoration(
-            labelText: 'Last name',
+            labelText:Last_name,
             border: OutlineInputBorder(
               borderRadius: BorderRadius.circular(10),
             ),
@@ -135,7 +135,7 @@ class NextButton extends StatelessWidget {
           child: state.status == FormzSubmissionStatus.inProgress
               ? const CircularProgressIndicator(color: Colors.white)
               : const Text(
-            "NEXT",
+            button_txt,
             style: TextStyle(
               fontSize: 16,
               color: Colors.white,

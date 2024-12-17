@@ -18,17 +18,11 @@ class   Failure extends Equatable {
     return Failure('Erreur réseau');
   }
 
-  // Factory pour les erreurs d'authentification
-  factory Failure.auth() {
-    return Failure('Erreur d\'authentification');
-  }
-
   // Factory pour les erreurs de validation
   factory Failure.validation() {
     return Failure('Erreur de validation');
   }
 
-  // Redéfinit le `props` de Equatable pour inclure le message d'erreur
   @override
   List<Object?> get props => [message];
 }

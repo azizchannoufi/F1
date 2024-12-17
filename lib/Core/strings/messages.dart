@@ -1,4 +1,7 @@
-const ADD_SUCCESS_MESSAGE = "Article Added Successfully";
-const DELETE_SUCCESS_MESSAGE = "Article Deleted Successfully";
-const UPDATE_SUCCESS_MESSAGE = "Article Updated Successfully";
-const REGISTRE_SUCCESS_MESSAGE = "Welcome";
+const user_info_welcome= "Let's Get Familiar" ;
+const user_info_introduce= "Introduce Yourself" ;
+const First_name="First name";
+const Last_name="Last name";
+const button_txt="NEXT";
+const good_mornig="Good morning,";
+const top10="Top 10 ranking 2021";

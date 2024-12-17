@@ -29,13 +29,6 @@ class _UserState extends UserInfoPageProps{
           child: BlocBuilder<UserinfoBloc, UserinfoState>(
             builder: (context, state) {
               // Handling success or failure state inside the builder
-              if (state.status == FormzSubmissionStatus.success) {
-                // Navigate to the home page when the form submission is successful
-                Future.delayed(Duration.zero, () {
-                  context.router.pushNamed('/home');
-                });
-              }
-
               if (state.status == FormzSubmissionStatus.failure) {
                 // Show an error message if submission fails
                 WidgetsBinding.instance.addPostFrameCallback((_) {
@@ -46,29 +39,37 @@ class _UserState extends UserInfoPageProps{
               }
 
               return SingleChildScrollView(
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.stretch,
-                  children: [
-                    const SizedBox(height: 50),
-                    const LogoSection(),
-                    const SizedBox(height: 30),
-                    const TitleSection(),
-                    const SizedBox(height: 20),
-                    InputFieldsSection(
-                      firstNameController: firstNameController,
-                      lastNameController: lastNameController,
+                child: Container(
+                  decoration: const BoxDecoration(
+                    color: Colors.white, // Couleur de fond
+                    borderRadius: BorderRadius.only(
+                      topLeft: Radius.circular(20),  // Bordure en haut à gauche
+                      topRight: Radius.circular(20), // Bordure en haut à droite
                     ),
-                    const SizedBox(height: 30),
-                    NextButton(
-                      onPressed: state.isValid
-                          ? () {
-                        context.read<UserinfoBloc>().add(Submit());
-                        context.router.push(HomeRoute());
-                      }
-                          : null,
-                    ),
-                    const SizedBox(height: 20),
-                  ],
+                  ),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.stretch,
+                    children: [
+                      const SizedBox(height: 20),
+                      const LogoSection(),
+                      const TitleSection(),
+                      const SizedBox(height: 150),
+                      InputFieldsSection(
+                        firstNameController: firstNameController,
+                        lastNameController: lastNameController,
+                      ),
+                      const SizedBox(height: 30),
+                      NextButton(
+                        onPressed: state.isValid
+                            ? () {
+                          context.read<UserinfoBloc>().add(Submit());
+                          context.router.push(HomeRoute());
+                        }
+                            : null,
+                      ),
+                      const SizedBox(height: 20),
+                    ],
+                  ),
                 ),
               );
             },
